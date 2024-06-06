@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-course",
+  "version": "1.0.0",
+  "description": "Nodejs Course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Svobodennn/Nodejs-Course.git"
+  },
+  "author": "Melih Saraç",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Svobodennn/Nodejs-Course/issues"
+  },
+  "homepage": "https://github.com/Svobodennn/Nodejs-Course#readme"
+}
