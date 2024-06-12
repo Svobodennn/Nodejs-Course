@@ -38,6 +38,22 @@ const getUserByIdHandler = (req,res) =>{
     }
 }
 
+// Route handler for POST /api/users
+const createUserHandler = (req, res) => {
+    let body = '';
+    // Listen for data
+    req.on('data' , (chunk) => {
+        body += chunk.toString();
+     });
+     req.on('end', () => {
+        const newUser = JSON.parse(body)
+        users.push(newUser); // add tı database
+        res.statusCode = 201;
+        res.write(JSON.stringify(newUser))
+        res.end();
+     })
+}
+
 // Not found handler
 const notFound = (req, res) =>{
     res.statusCode = 404;
@@ -52,6 +68,9 @@ const server = createServer((req,res) =>{
             }
             else if (req.url.match(/\/api\/users\/([0-9+])/) && req.method === 'GET') {
                 getUserByIdHandler(req,res);    
+            }
+            else if (req.url === '/api/users' && req.method === 'POST'){
+                createUserHandler(req, res);
             }
             else {
                 notFound(req,res)
